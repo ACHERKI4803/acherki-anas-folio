@@ -25,7 +25,7 @@ const HeroSection = () => {
           transition={{ delay: 0.2 }}
           className="text-primary tracking-[0.3em] uppercase text-sm font-body mb-6"
         >
-          Ingénieur Full-Stack
+          Software Engineer
         </motion.p>
 
         <motion.h1
@@ -43,7 +43,7 @@ const HeroSection = () => {
           transition={{ delay: 0.6 }}
           className="text-muted-foreground font-body text-lg md:text-xl max-w-2xl mx-auto mb-10"
         >
-          Étudiant en 3ᵉ année du cycle ingénieur à l'EHEI Oujda — Stagiaire PFE au Ministère de l'Économie et des Finances, Rabat
+          Ingénieur en Développement Informatique · Full-Stack Developer
         </motion.p>
 
         {/* Social links */}
