@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import anasPhoto from "@/assets/anas.png";
 
 const HeroSection = () => {
   return (
@@ -19,10 +20,27 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
 
       <div className="relative z-10 container text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="mb-8 flex justify-center"
+        >
+          <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-primary/30 glow">
+            <img
+              src={anasPhoto}
+              alt="Anas Acherki"
+              className="w-full h-full object-cover"
+              width={176}
+              height={176}
+            />
+          </div>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.3 }}
           className="text-primary tracking-[0.3em] uppercase text-sm font-body mb-6"
         >
           Software Engineer
