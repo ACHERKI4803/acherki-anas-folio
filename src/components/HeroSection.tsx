@@ -19,23 +19,25 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
 
+      {/* Photo en haut à gauche */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.1, duration: 0.6 }}
+        className="absolute top-8 left-8 z-20"
+      >
+        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-primary/30 glow">
+          <img
+            src={anasPhoto}
+            alt="Anas Acherki"
+            className="w-full h-full object-cover"
+            width={96}
+            height={96}
+          />
+        </div>
+      </motion.div>
+
       <div className="relative z-10 container text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="mb-8 flex justify-center"
-        >
-          <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-primary/30 glow">
-            <img
-              src={anasPhoto}
-              alt="Anas Acherki"
-              className="w-full h-full object-cover"
-              width={176}
-              height={176}
-            />
-          </div>
-        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
