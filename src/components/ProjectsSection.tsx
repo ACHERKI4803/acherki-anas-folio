@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
+import projectCrm from "@/assets/project-crm.jpg";
+import projectWater from "@/assets/project-water.jpg";
+import projectDonation from "@/assets/project-donation.jpg";
+import projectBlog from "@/assets/project-blog.jpg";
+import projectAbsence from "@/assets/project-absence.jpg";
+import projectStudents from "@/assets/project-students.jpg";
+
 const projects = [
   {
     title: "Application CRM",
@@ -8,6 +15,7 @@ const projects = [
     description:
       "Application web de gestion des clients et factures avec CI/CD complète : Jenkins, SonarQube, Docker et Ansible pour l'automatisation du déploiement.",
     year: "2025",
+    image: projectCrm,
   },
   {
     title: "Prédiction de Consommation d'Eau",
@@ -15,6 +23,7 @@ const projects = [
     description:
       "Application intelligente de prédiction de consommation d'eau à partir de données climatiques, utilisant l'intelligence artificielle.",
     year: "2025",
+    image: projectWater,
   },
   {
     title: "Site de Dons — stichtingdelink.nl",
@@ -23,6 +32,7 @@ const projects = [
       "Site web néerlandais de dons pour des causes humanitaires, développé en équipe et hébergé sur Namecheap.",
     year: "2024",
     link: "https://www.stichtingdelink.nl",
+    image: projectDonation,
   },
   {
     title: "Application Blog",
@@ -30,6 +40,7 @@ const projects = [
     description:
       "Blog permettant la création, modification et suppression d'articles avec système de commentaires complet.",
     year: "2025",
+    image: projectBlog,
   },
   {
     title: "Gestion d'Absence",
@@ -37,6 +48,7 @@ const projects = [
     description:
       "Application de gestion d'absence développée lors d'un stage à SUP-MTI Oujda.",
     year: "2023",
+    image: projectAbsence,
   },
   {
     title: "Gestion des Étudiants",
@@ -44,6 +56,7 @@ const projects = [
     description:
       "Projet de synthèse — application complète de gestion des étudiants réalisée en équipe.",
     year: "2024",
+    image: projectStudents,
   },
 ];
 
@@ -70,26 +83,41 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="group border border-border rounded-lg p-6 bg-card hover:border-primary/40 transition-all hover:glow"
+              className="group border border-border rounded-lg overflow-hidden bg-card hover:border-primary/40 transition-all hover:glow"
             >
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs text-primary tracking-widest">{p.year}</span>
+              <div className="relative overflow-hidden h-48">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  loading="lazy"
+                  width={800}
+                  height={512}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                <div className="absolute top-3 left-3">
+                  <span className="text-xs text-primary-foreground bg-primary/80 backdrop-blur-sm px-3 py-1 rounded-full tracking-widest">
+                    {p.year}
+                  </span>
+                </div>
                 {p.link && (
                   <a
                     href={p.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="absolute top-3 right-3 text-foreground/70 hover:text-primary bg-card/60 backdrop-blur-sm p-2 rounded-full transition-colors"
                   >
-                    <ExternalLink size={16} />
+                    <ExternalLink size={14} />
                   </a>
                 )}
               </div>
-              <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                {p.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{p.description}</p>
-              <p className="text-xs text-muted-foreground tracking-wider">{p.tech}</p>
+              <div className="p-6">
+                <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {p.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{p.description}</p>
+                <p className="text-xs text-muted-foreground tracking-wider">{p.tech}</p>
+              </div>
             </motion.div>
           ))}
         </div>
