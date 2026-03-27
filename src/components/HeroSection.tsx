@@ -26,7 +26,7 @@ const HeroSection = () => {
         transition={{ delay: 0.1, duration: 0.6 }}
         className="absolute top-8 left-8 z-20"
       >
-        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-primary/30 glow">
+        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mt-10 ml-8 border-2 border-primary/30 glow">
           <img
             src={anasPhoto}
             alt="Anas Acherki"
